@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title">
+
+</head>
+
+<body class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <header class="text-center">
+        <h1>Tic Tac Toe</h1>
+      </header>
+      <div class="panel">
+        <table>
+          <thead>
+            <th>
+              <h2 id="message" class="text-center">
+                <!-- message -->
+              </h2>
+            </th>
+            <th></th>
+            <th></th>
+          </thead>
+
+          <tbody>
+            <tr id="top">
+              <td id="top-left" class="first-col left-diag"></td>
+              <td id="top-center" class="second-col"></td>
+              <td id="top-right" class="third-col right-diag"></td>
+            </tr>
+            <tr id="mid">
+              <td id="mid-left" class="first-col"></td>
+              <td id="mid-center" class="second-col left-diag right-diag"></td>
+              <td id="mid-right" class="third-col"></td>
+            </tr>
+            <tr id="bottom">
+              <td id="bottom-left" class="first-col right-diag"></td>
+              <td id="bottom-center" class="second-col"></td>
+              <td id="bottom-right" class="third-col left-diag"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="user-track" class="row text-center">
+          <div class="col-md-4">
+            <span>Player: X</span>
+            <p id="player-x">
+              <!--placeholder-->
+            </p>
+          </div>
+          <div class="col-md-4">
+            <span>Player: O</span>
+            <p id="player-o">
+              <!--placeholder-->
+            </p>
+          </div>
+          <div class="col-md-4">
+            <span># of Ties</span>
+            <p id="number-ties">
+              <!--placeholder-->
+            </p>
+          </div>
+        </div>
+
+
+        <div class="text-center restart-container">
+          <a href="#" id="new-game" class="">RESTART GAME</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="js/app.js">
+  </script>
+</body>
+
+</html>
