@@ -15,9 +15,11 @@ $(document).ready(function() {
 
   $(checkBox).click(function(e){
     if ($(this).children("span").length > 0) {
-      alertBox.html("Already picked. Select an empty box.");
+      alertBox.html("Already picked.<br> Select an empty box.<br> <a href='#' id='ok' class='ok-link'>OK</a>").fadeIn();
+      $('#ok').click(function(){
+        alertBox.fadeOut("fast");
+      })
     } else {
-      alertBox.html("");
       $(this).html("<span>" + userTurn + "</span>");
       if (userTurn == "X") {
         userTurn = "O";
