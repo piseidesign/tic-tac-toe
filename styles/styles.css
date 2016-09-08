@@ -16,6 +16,7 @@ td {
   border-right: 4px solid #269c85;
   font-size: 84px;
   color: #444;
+  cursor: pointer;
 }
 
 tr {
