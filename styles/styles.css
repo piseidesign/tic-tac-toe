@@ -40,7 +40,7 @@ h1 {
 }
 #message span {
   display: block;
-  font-size: 68px;
+  font-size: 84px;
   color: #444;
 }
 .panel {
@@ -62,6 +62,15 @@ h1 {
 #user-track p {
   color: #2f917e;
   height: 34px;
+}
+.ok-link {
+  font-size: 38px;
+  color: #217867;
+  padding-top: 40px;
+  display: inline-block;
+}
+.ok-link:hover {
+  color: #25f0c8;
 }
 a {
   color: #1ABC9C;
