@@ -1,24 +1,29 @@
 body {
-  background-color: #2C3E50;
   padding-top: 60px;
+
+  background-color: #2C3E50;
 }
 table {
-  background-color: #1ABC9C;
+  position: relative;
+
   width: 100%;
   margin-bottom: 40px;
-  position: relative;
+
+  background-color: #1ABC9C;
 }
 td {
-  text-align: center;
-  content: " ";
-  height: 150px;
   width: 33.33%;
-  border-right: 4px solid #269c85;
-  font-size: 84px;
-  color: #444;
-  cursor: pointer;
-}
+  height: 150px;
 
+  content: " ";
+  cursor: pointer;
+  text-align: center;
+
+  color: #444;
+  border-right: 4px solid #269c85;
+
+  font-size: 84px;
+}
 tr {
   border-bottom: 4px solid #269c85;
 }
@@ -30,55 +35,75 @@ h1 {
 }
 #message {
   position: absolute;
-  background: #1abc9c;
-  height: 100%;
-  color: #c7f8ee;
-  left: 0;
   right: 0;
+  left: 0;
+
+  display: none;
+
+  height: 100%;
   margin: 0 auto;
   padding: 200px 40px 0 40px;
-  display: none;
+
+  color: #c7f8ee;
+  background: #1abc9c;
 }
-#message span {
-  display: block;
+h2#message span {
   font-size: 84px;
-  color: #444;
 }
+
 .panel {
   margin-top: 20px;
   padding-bottom: 20px;
-  background-color: #F2F2F2;
+
   border-radius: 0 0 12px 12px;
+  background-color: #F2F2F2;
 }
 .restart-container {
   margin-top: 10px;
-  border-top: 2px solid #b1dad2;
   padding-top: 20px;
+
+  border-top: 2px solid #b1dad2;
 }
 #user-track {
   color: #81a69f;
-  font-size: 24px;
 
+  font-size: 24px;
 }
 #user-track p {
-  color: #2f917e;
   height: 34px;
+
+  color: #2f917e;
 }
 .ok-link {
-  font-size: 38px;
-  color: #217867;
-  padding-top: 40px;
   display: inline-block;
+
+  padding-top: 40px;
+
+  color: #217867;
+
+  font-size: 38px;
 }
 .ok-link:hover {
   color: #25f0c8;
 }
 a {
-  color: #1ABC9C;
-  font-size: 18px;
   text-decoration: none;
+
+  color: #1ABC9C;
+
+  font-size: 18px;
 }
 a:hover, a:active, a:focus {
-  color: #217867;
   text-decoration: none;
+
+  color: #217867;
 }
+.color-light {
+  color: #F2EBD3;
+}
+.color-dark {
+  color: #444;
+}
+.off { pointer-events: none; }
+
+/*.on { pointer-events: auto; }*/
