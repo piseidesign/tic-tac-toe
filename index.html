@@ -6,7 +6,6 @@
   <title></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title">
-
 </head>
 
 <body class="container">
@@ -18,15 +17,14 @@
       <div class="panel">
         <table>
           <thead>
-            <th>
-              <h2 id="message" class="text-center">
-                <!-- message -->
-              </h2>
-            </th>
-            <th></th>
-            <th></th>
+            <tr>
+              <th>
+                <h2 id="message" class="text-center"><!-- message --></h2>
+              </th>
+              <th></th>
+              <th></th>
+            </tr>
           </thead>
-
           <tbody>
             <tr id="top">
               <td id="top-left" class="first-col left-diag"></td>
@@ -45,27 +43,27 @@
             </tr>
           </tbody>
         </table>
+
         <div id="user-track" class="row text-center">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-4 col-xs-4">
             <span>Player X</span>
             <p id="player-x">
               <!--placeholder-->
             </p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-4 col-xs-4">
             <span>Player O</span>
             <p id="player-o">
               <!--placeholder-->
             </p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-4 col-xs-4">
             <span>Draws</span>
             <p id="number-ties">
               <!--placeholder-->
             </p>
           </div>
         </div>
-
 
         <div class="text-center restart-container">
           <a href="#" id="new-game" class="">RESTART GAME</a>

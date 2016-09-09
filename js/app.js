@@ -3,7 +3,7 @@
 
 $(document).ready(function() {
   var alertBox = $('#message');
-  var checkBox = $('table tr td');
+  var selectBox = $('table tr td');
   var userTurn = "X";
   var xCounter = 0;
   var oCounter = 0;
@@ -12,75 +12,120 @@ $(document).ready(function() {
   var playerO = $('#player-o');
   var numberTies = $('#number-ties');
 
-
-  $(checkBox).click(function(e){
+  $(selectBox).click(function(e){
     if ($(this).children("span").length > 0) {
       alertBox.html("Already picked.<br> Select an empty box.<br> <a href='#' id='ok' class='ok-link'>OK</a>").fadeIn();
       $('#ok').click(function(){
         alertBox.fadeOut("fast");
       })
     } else {
-      $(this).html("<span>" + userTurn + "</span>");
       if (userTurn == "X") {
         userTurn = "O";
+        $(this).html("<span class='color-light'>" + userTurn + "</span>");
       } else {
         userTurn = "X";
+        $(this).html("<span>" + userTurn + "</span>");
       }
     }
 
     var oWin = "OOO";
     var xWin = "XXX";
     //rows
-    var topRow = $('#top td span').text();
-    var midRow = $('#mid td span').text();
-    var bottomRow = $('#bottom td span').text();
+    var topRow = $('#top td span');
+    var midRow = $('#mid td span');
+    var bottomRow = $('#bottom td span');
     //rows
-    var firstCol = $('.first-col').text();
-    var secondCol = $('.second-col').text();
-    var thirdCol = $('.third-col').text();
+    var firstCol = $('.first-col');
+    var secondCol = $('.second-col');
+    var thirdCol = $('.third-col');
     //diagonal
-    var leftDiag = $('.left-diag').text();
-    var rightDiag = $('.right-diag').text();
+    var leftDiag = $('.left-diag');
+    var rightDiag = $('.right-diag');
 
     //Check if O win
-    if (topRow == oWin ||
-        midRow == oWin ||
-        bottomRow == oWin ||
-        firstCol == oWin ||
-        secondCol == oWin ||
-        thirdCol == oWin ||
-        leftDiag == oWin ||
-        rightDiag == oWin) {
-      oCounter++;
-      alertBox.html("<span>O</span> WINNER!").fadeIn();
-      playerO.html(oCounter);
+    if (topRow.text() == oWin) {
+      var flashElements = topRow;
+      flashMessageO();
+    } else if (midRow.text() == oWin) {
+      var flashElements = midRow;
+      flashMessageO();
+    } else if (bottomRow.text() == oWin) {
+      var flashElements = bottomRow;
+      flashMessageO();
+    } else if (firstCol.text() == oWin) {
+      var flashElements = firstCol;
+      flashMessageO();
+    } else if (secondCol.text() == oWin) {
+      var flashElements = secondCol;
+      flashMessageO();
+    } else if (thirdCol.text() == oWin) {
+      var flashElements = thirdCol;
+      flashMessageO();
+    } else if (leftDiag.text() == oWin) {
+      var flashElements = leftDiag;
+      flashMessageO();
+    } else if (rightDiag.text() == oWin) {
+      var flashElements = rightDiag;
+      flashMessageO();
+    }
+ //Check if X win
+    else if (topRow.text() == xWin) {
+      var flashElements = topRow;
+      flashMessageX();
+    } else if (midRow.text() == xWin) {
+      var flashElements = midRow;
+      flashMessageX();
+    } else if (bottomRow.text() == xWin) {
+      var flashElements = bottomRow;
+      flashMessageX();
+    } else if (firstCol.text() == xWin) {
+      var flashElements = firstCol;
+      flashMessageX();
+    } else if (secondCol.text() == xWin) {
+      var flashElements = secondCol;
+      flashMessageX();
+    } else if (thirdCol.text() == xWin) {
+      var flashElements = thirdCol;
+      flashMessageX();
+    } else if (leftDiag.text() == xWin) {
+      var flashElements = leftDiag;
+      flashMessageX();
+    } else if (rightDiag.text() == xWin) {
+      var flashElements = rightDiag;
+      flashMessageX();
+    }
+    //Check if it's a draw
+    var tdEmpty = $('table td:empty').length;
+    if (tdEmpty == 0) {
+      alertBox.html("<span class='color-dark'>X</span><span class='color-light'>O</span><p>IT'S A DRAW!</p>").fadeIn('4000');
+      tiesCounter++;
+      numberTies.html(tiesCounter);
+    }
+    // Starts a new game
+    $('#new-game').click(newGame);
 
-    } //Check if X win
-    else if (topRow == xWin ||
-        midRow == xWin ||
-        bottomRow == xWin ||
-        firstCol == xWin ||
-        secondCol == xWin ||
-        thirdCol == xWin ||
-        leftDiag == xWin ||
-        rightDiag == xWin) {
+    //functions
+    function newGame() {
+      alertBox.empty().hide("slow");
+      selectBox.empty().removeClass('off');
+    }
+    //Three in a row starts flashing
+    function winnerFlash(element) {
+      selectBox.addClass('off');
+      element.fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+    }
+    function flashMessageO() {
+      winnerFlash(flashElements);
+      alertBox.html("<span class='color-light'>O</span> <p>WINNER!</p>").delay(800).fadeIn('slow');
+      oCounter++;
+      playerO.html(oCounter);
+    }
+    function flashMessageX() {
+      winnerFlash(flashElements);
+      alertBox.html("<span class='color-dark'>X</span> <p>WINNER!</p>").delay(800).fadeIn('slow');
       xCounter++;
-      alertBox.html("<span>X</span> WINNER!").fadeIn();
       playerX.html(xCounter);
     }
-    else {
-      var tdEmpty = $('table td:empty').length;
-      if (tdEmpty == 0) {
-        tiesCounter++;
-        alertBox.html("IT'S A DRAW!").fadeIn();
-        numberTies.html(tiesCounter);
-      }
-    }
-
-    $('#new-game').click(function() {
-      alertBox.empty().hide("slow");
-      checkBox.empty();
-    });
 
   })
 })
