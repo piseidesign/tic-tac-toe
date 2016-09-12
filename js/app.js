@@ -42,6 +42,9 @@ $(document).ready(function() {
     var leftDiag = $('.left-diag');
     var rightDiag = $('.right-diag');
 
+    var tdEmpty = $('table td:empty').length;
+    var checkDraw = topRow || midRow || bottomRow || firstCol || secondCol || thirdCol || leftDiag || rightDiag
+
     //Check if O win
     if (topRow.text() == oWin) {
       var flashElements = topRow;
@@ -67,8 +70,7 @@ $(document).ready(function() {
     } else if (rightDiag.text() == oWin) {
       var flashElements = rightDiag;
       flashMessageO();
-    }
- //Check if X win
+    }  //Check if X win
     else if (topRow.text() == xWin) {
       var flashElements = topRow;
       flashMessageX();
@@ -93,10 +95,8 @@ $(document).ready(function() {
     } else if (rightDiag.text() == xWin) {
       var flashElements = rightDiag;
       flashMessageX();
-    }
-    //Check if it's a draw
-    var tdEmpty = $('table td:empty').length;
-    if (tdEmpty == 0) {
+    } //Check if it's a draw
+    else if (tdEmpty == 0) {
       alertBox.html("<span class='color-dark'>X</span><span class='color-light'>O</span><p>IT'S A DRAW!</p>").fadeIn('4000');
       tiesCounter++;
       numberTies.html(tiesCounter);
@@ -119,12 +119,14 @@ $(document).ready(function() {
       alertBox.html("<span class='color-light'>O</span> <p>WINNER!</p>").delay(800).fadeIn('slow');
       oCounter++;
       playerO.html(oCounter);
+      return;
     }
     function flashMessageX() {
       winnerFlash(flashElements);
       alertBox.html("<span class='color-dark'>X</span> <p>WINNER!</p>").delay(800).fadeIn('slow');
       xCounter++;
       playerX.html(xCounter);
+      return;
     }
 
   })
