@@ -1,7 +1,9 @@
 // Whole-script strict
 "use strict";
 
+//Initiate document ready
 $(document).ready(function() {
+  // Set initial variables
   var alertBox = $('#message');
   var selectBox = $('table tr td');
   var userTurn = "X";
@@ -12,6 +14,7 @@ $(document).ready(function() {
   var playerO = $('#player-o');
   var numberTies = $('#number-ties');
 
+  //On each td click animate selection to X or O
   $(selectBox).click(function(e){
     if ($(this).children("span").length > 0) {
       alertBox.html("Already picked.<br> Select an empty box.<br> <a href='#' id='ok' class='ok-link'>OK</a>").fadeIn();
@@ -27,7 +30,7 @@ $(document).ready(function() {
         $(this).html("<span>" + userTurn + "</span>");
       }
     }
-
+    //Set variables for three in a row pattern
     var oWin = "OOO";
     var xWin = "XXX";
     //rows
@@ -41,7 +44,7 @@ $(document).ready(function() {
     //diagonal
     var leftDiag = $('.left-diag');
     var rightDiag = $('.right-diag');
-
+    //Check to see if there's any empty box
     var tdEmpty = $('table td:empty').length;
     var checkDraw = topRow || midRow || bottomRow || firstCol || secondCol || thirdCol || leftDiag || rightDiag
 
@@ -104,7 +107,7 @@ $(document).ready(function() {
     // Starts a new game
     $('#new-game').click(newGame);
 
-    //functions
+    //When new game is press, remove the class 'off' that prevent double click
     function newGame() {
       alertBox.empty().hide("slow");
       selectBox.empty().removeClass('off');
@@ -114,6 +117,7 @@ $(document).ready(function() {
       selectBox.addClass('off');
       element.fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
     }
+    //Fancy flashes to let O user know they've won
     function flashMessageO() {
       winnerFlash(flashElements);
       alertBox.html("<span class='color-light'>O</span> <p>WINNER!</p>").delay(800).fadeIn('slow');
@@ -121,6 +125,7 @@ $(document).ready(function() {
       playerO.html(oCounter);
       return;
     }
+    //Fancy flashes to let X user know they've won
     function flashMessageX() {
       winnerFlash(flashElements);
       alertBox.html("<span class='color-dark'>X</span> <p>WINNER!</p>").delay(800).fadeIn('slow');
@@ -128,6 +133,5 @@ $(document).ready(function() {
       playerX.html(xCounter);
       return;
     }
-
   })
 })

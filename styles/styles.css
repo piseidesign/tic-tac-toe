@@ -1,3 +1,5 @@
+/*Spaces in each elements are separated by category of styles*/
+
 body {
   padding-top: 60px;
 
@@ -105,5 +107,3 @@ a:hover, a:active, a:focus {
   color: #444;
 }
 .off { pointer-events: none; }
-
-/*.on { pointer-events: auto; }*/
